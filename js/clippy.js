@@ -31,7 +31,7 @@ class ClippyAssistant {
       "Wildfire smoke segmentation with SAM and Qwen2.5-VL? Back in my day, we were impressed by the 3D Pipes screensaver.",
       "I notice your cursor hovering around. Don't leave yet, dial-up internet took 10 minutes to load this page!",
       "Need to send Nathan an email? Hit up njmcmillan04@gmail.com! I promise I won't autocorrect your spelling.",
-      "Fun fact: This website runs on a Raspberry Pi 4 that sips less power than an incandescent light bulb!"
+      "Fun fact: Nathan's portfolio is built in lightweight retro Windows 98 style to load blazingly fast!"
     ];
 
     this.quipIndex = 0;
@@ -509,11 +509,9 @@ class ClippyAssistant {
         openWindowById('win-resume');
       }
 
-      // 7. RASPBERRY PI HOSTING
-      else if (q.includes('pi') || q.includes('raspberry') || q.includes('host') || q.includes('server') || q.includes('hardware')) {
-        this.speak("This website is self-hosted on a Raspberry Pi 4 Model B running Debian Linux and Nginx on ~3.5 watts.", 'normal');
-        openWindowById('win-browser');
-        document.querySelector('[data-tab="tab-pi"]')?.click();
+      // 7. EXPERIENCE & HOSTING
+      else if (q.includes('host') || q.includes('deploy') || q.includes('server') || q.includes('architecture')) {
+        this.speak("This portfolio is built with lightweight vanilla HTML, CSS, and JavaScript, optimized for fast loading and zero server overhead.", 'normal');
       }
 
       // 8. WHO IS NATHAN / BIO
@@ -524,7 +522,7 @@ class ClippyAssistant {
 
       // 9. TRASH & JOKES
       else if (q.includes('explorer') || q.includes('browser')) {
-        this.speak("Nathan Explorer is Nathan's portfolio browser showing all 6 research projects, Raspberry Pi specs, and links.", 'normal');
+        this.speak("Nathan Explorer is Nathan's portfolio browser showing all 6 research projects, work experience, and links.", 'normal');
         openWindowById('win-browser');
       }
       else if (q.includes('trash') || q.includes('delete') || q.includes('recycle')) {
@@ -533,7 +531,7 @@ class ClippyAssistant {
         setTimeout(() => this.avatar.classList.remove('angry'), 1500);
       }
       else if (q.includes('joke') || q.includes('funny') || q.includes('clippy')) {
-        this.speak("I was born in Office 97. Now I live on a Raspberry Pi. Talk about a glow up!", 'wink');
+        this.speak("I was born in Office 97. Now I live on Nathan's portfolio website. Talk about a glow up!", 'wink');
         this.playAnimation('excited');
       }
 

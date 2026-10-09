@@ -225,7 +225,7 @@ function initBrowserTabs() {
 
   const tabUrls = {
     'tab-projects': 'http://nathan.dev/projects',
-    'tab-pi': 'http://nathan.dev/raspberry-pi-server',
+    'tab-experience': 'http://nathan.dev/experience',
     'tab-github': 'http://nathan.dev/connect-github'
   };
 
