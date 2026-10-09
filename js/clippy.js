@@ -464,7 +464,7 @@ class ClippyAssistant {
         openWindowById('win-about');
       }
       else if (q.includes('forge') || q.includes('club') || q.includes('organization')) {
-        this.speak("Nathan is an active member of Clemson Forge (2024), collaborating on hands-on engineering projects.", 'normal');
+        this.speak("Nathan was a member of Clemson Forge (2024), collaborating on hands-on engineering projects.", 'normal');
         openWindowById('win-about');
       }
       else if (q.includes('clemson') || q.includes('school') || q.includes('college') || q.includes('university') || q.includes('degree') || q.includes('education') || q.includes('major') || q.includes('minor')) {
