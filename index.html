@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nathan McMillan | Windows 98 Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       1. DESKTOP AREA
+       ====================================================================== -->
+  <main class="desktop" id="desktop">
+
+    <!-- Desktop Icons -->
+    <div class="desktop-icons">
+
+      <!-- Icon: My Computer (About) -->
+      <div class="desktop-icon" data-window="win-about">
+        <div class="icon-img">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <!-- Retro Computer Monitor SVG -->
+            <rect x="2" y="3" width="28" height="20" fill="#c0c0c0" stroke="#000" stroke-width="1.5"/>
+            <rect x="5" y="6" width="22" height="14" fill="#008080" stroke="#000" stroke-width="1"/>
+            <rect x="12" y="23" width="8" height="4" fill="#c0c0c0" stroke="#000" stroke-width="1"/>
+            <rect x="7" y="27" width="18" height="3" fill="#808080" stroke="#000" stroke-width="1"/>
+          </svg>
+        </div>
+        <span class="icon-label">My Computer</span>
+      </div>
+
+      <!-- Icon: Projects Folder -->
+      <div class="desktop-icon" data-window="win-projects">
+        <div class="icon-img">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <!-- Retro Folder SVG -->
+            <path d="M2,6 L12,6 L15,9 L30,9 L30,26 L2,26 Z" fill="#e6c229" stroke="#000" stroke-width="1.5"/>
+            <path d="M4,11 L30,11 L28,26 L2,26 Z" fill="#ffd166" stroke="#000" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <span class="icon-label">Projects</span>
+      </div>
+
+      <!-- Icon: Nathan Explorer (Browser Tab) -->
+      <div class="desktop-icon" data-window="win-browser">
+        <div class="icon-img">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <!-- Retro Nathan Explorer 'N' with Golden Orbit SVG -->
+            <circle cx="16" cy="16" r="14" fill="#1084d0" stroke="#000" stroke-width="1.5"/>
+            <ellipse cx="16" cy="16" rx="15" ry="5.5" fill="none" stroke="#ffcc00" stroke-width="2.5" transform="rotate(-30 16 16)"/>
+            <text x="8.5" y="22" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="18" fill="#ffffff">N</text>
+          </svg>
+        </div>
+        <span class="icon-label">Nathan Explorer</span>
+      </div>
+
+      <!-- Icon: Resume Notepad -->
+      <div class="desktop-icon" data-window="win-resume">
+        <div class="icon-img">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <!-- Retro Notepad SVG -->
+            <rect x="5" y="3" width="22" height="26" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+            <line x1="8" y1="8" x2="24" y2="8" stroke="#1084d0" stroke-width="1.5"/>
+            <line x1="8" y1="13" x2="24" y2="13" stroke="#808080" stroke-width="1.2"/>
+            <line x1="8" y1="18" x2="24" y2="18" stroke="#808080" stroke-width="1.2"/>
+            <line x1="8" y1="23" x2="18" y2="23" stroke="#808080" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <span class="icon-label">Resume.txt</span>
+      </div>
+
+      <!-- Icon: Recycle Bin -->
+      <div class="desktop-icon" data-window="win-trash">
+        <div class="icon-img">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <!-- Retro Recycle Bin SVG -->
+            <path d="M7,8 L25,8 L22,28 L10,28 Z" fill="#c0c0c0" stroke="#000" stroke-width="1.5"/>
+            <rect x="5" y="5" width="22" height="3" fill="#808080" stroke="#000" stroke-width="1.2"/>
+            <line x1="13" y1="11" x2="13" y2="24" stroke="#404040" stroke-width="1.5"/>
+            <line x1="19" y1="11" x2="19" y2="24" stroke="#404040" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="icon-label">Recycle Bin</span>
+      </div>
+
+    </div>
+
+    <!-- ======================================================================
+         2. FLOATING / POP-UP WINDOWS
+         ====================================================================== -->
+
+    <!-- WINDOW 1: NATHAN EXPLORER (BROWSER TAB EXPERIENCE) -->
+    <div class="window win-outset" id="win-browser" style="top: 40px; left: 160px; width: 680px; height: 480px;">
+      <div class="window-titlebar">
+        <div class="window-title">
+          <span>Nathan Explorer - Nathan McMillan's Projects</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-btn-min" title="Minimize">_</button>
+          <button class="win-btn win-btn-max" title="Maximize">□</button>
+          <button class="win-btn win-btn-close" title="Close">✕</button>
+        </div>
+      </div>
+
+      <!-- Browser Menu -->
+      <div class="window-menu">
+        <span>File</span>
+        <span>Edit</span>
+        <span>View</span>
+        <span>Favorites</span>
+        <span>Help</span>
+      </div>
+
+      <!-- Browser Toolbar & Tabs -->
+      <div class="browser-toolbar">
+        <!-- Interactive Browser Tabs -->
+        <div class="browser-tabs">
+          <div class="browser-tab active" data-tab="tab-projects">
+            <span>[Projects Showcase]</span>
+          </div>
+          <div class="browser-tab" data-tab="tab-pi">
+            <span>[Raspberry Pi Server]</span>
+          </div>
+          <div class="browser-tab" data-tab="tab-github">
+            <span>[Contact & GitHub]</span>
+          </div>
+        </div>
+
+        <!-- Address Bar -->
+        <div class="browser-address-bar">
+          <button class="browser-nav-btn win-outset">&lt; Back</button>
+          <button class="browser-nav-btn win-outset">Forward &gt;</button>
+          <button class="browser-nav-btn win-outset">Refresh</button>
+          <button class="browser-nav-btn win-outset">Home</button>
+          <span>Address:</span>
+          <input type="text" class="browser-url-input win-inset" id="browser-url" value="http://nathan.dev/projects" readonly>
+        </div>
+      </div>
+
+      <!-- Browser Tab Contents -->
+      <div class="window-content win-inset" id="browser-viewport">
+        <!-- TAB 1: Projects Showcase -->
+        <div class="tab-pane active" id="tab-projects">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #c0c0c0; padding-bottom: 6px;">
+            <div>
+              <h2 style="color: #000080; font-size: 15px;">Featured CS & AI Projects</h2>
+              <p style="color: #555; font-size: 11px;">Computer Science & Artificial Intelligence portfolio - Nathan McMillan</p>
+            </div>
+            <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset" style="text-decoration: none;">GitHub: @njmcmil</a>
+          </div>
+
+          <div class="projects-grid">
+            <!-- Project 1: Wildfire VLM -->
+            <div class="project-card win-outset" id="card-wildfire">
+              <div>
+                <div class="project-image-box win-inset">
+                  <img src="assets/images/projects/wildfire_vlm.png" alt="VLM for Wildfire Detection Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="project-image-placeholder">
+                    <strong>[ Project Image Slot ]</strong>
+                    <span>assets/images/projects/wildfire_vlm.png</span>
+                  </div>
+                </div>
+                <h3>VLM for Wildfire Detection</h3>
+                <p>Reproduced a teacher-student smoke-segmentation pipeline using <strong>SAM</strong> to generate masks and <strong>PIDNet-S/M</strong> as lightweight student models. Integrated <strong>Qwen2.5-VL</strong> to preserve uncertain teacher labels and matched baseline mIoU (PIDNet-S 0.591 vs 0.594; PIDNet-M 0.605 vs 0.606).</p>
+                <div class="project-tags">
+                  <span class="tag">PyTorch</span>
+                  <span class="tag">SAM</span>
+                  <span class="tag">Qwen2.5-VL</span>
+                  <span class="tag">PIDNet</span>
+                  <span class="tag">Computer Vision</span>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+                <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset">View Repository</a>
+              </div>
+            </div>
+
+            <!-- Project 2: Robot Manipulation -->
+            <div class="project-card win-outset" id="card-robotics">
+              <div>
+                <div class="project-image-box win-inset">
+                  <img src="assets/images/projects/robot_manipulation.png" alt="VLA Robot Manipulation Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="project-image-placeholder">
+                    <strong>[ Project Image Slot ]</strong>
+                    <span>assets/images/projects/robot_manipulation.png</span>
+                  </div>
+                </div>
+                <h3>VLA Robot Manipulation</h3>
+                <p>Simulation-based robot-manipulation study using <strong>LIBERO</strong>, <strong>MuJoCo</strong>, and <strong>robosuite</strong>. Comparing vision-only, image-language, and Grid Sampler policies across tasks with 60-100 simulated demonstrations evaluating latency and visual-token usage.</p>
+                <div class="project-tags">
+                  <span class="tag">MuJoCo</span>
+                  <span class="tag">robosuite</span>
+                  <span class="tag">LIBERO</span>
+                  <span class="tag">Robotics</span>
+                  <span class="tag">Python</span>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+                <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset">View on GitHub</a>
+              </div>
+            </div>
+
+            <!-- Project 3: Embodied AI Manufacturing -->
+            <div class="project-card win-outset" id="card-manufacturing">
+              <div>
+                <div class="project-image-box win-inset">
+                  <img src="assets/images/projects/edge_ai_inspection.png" alt="Embodied AI Manufacturing Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="project-image-placeholder">
+                    <strong>[ Project Image Slot ]</strong>
+                    <span>assets/images/projects/edge_ai_inspection.png</span>
+                  </div>
+                </div>
+                <h3>Embodied AI for Automotive Inspection</h3>
+                <p>CU-ICAR vehicle-inspection prototype contributing to an NSF STRIDE proposal focused on adaptable edge AI. Curated 500+ images, established an initial <strong>YOLO26</strong> demo baseline of <strong>63% mAP@0.5</strong> across 3 component classes, and demonstrated 10-minute local <strong>OpenVINO</strong> inference.</p>
+                <div class="project-tags">
+                  <span class="tag">Edge AI</span>
+                  <span class="tag">YOLO</span>
+                  <span class="tag">OpenVINO</span>
+                  <span class="tag">NSF STRIDE</span>
+                  <span class="tag">Computer Vision</span>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+                <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset">Project Details</a>
+              </div>
+            </div>
+
+            <!-- Project 4: Ambient Health Feedback App -->
+            <div class="project-card win-outset" id="card-health">
+              <div>
+                <div class="project-image-box win-inset">
+                  <img src="assets/images/projects/ambient_health.png" alt="Ambient Health Feedback App Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="project-image-placeholder">
+                    <strong>[ Project Image Slot ]</strong>
+                    <span>assets/images/projects/ambient_health.png</span>
+                  </div>
+                </div>
+                <h3>Ambient Health Feedback App</h3>
+                <p>Built a native <strong>SwiftUI</strong> app translating Apple Health data into ambient feedback about physical well-being. Conducted heuristic-guided usability testing to evaluate feedback clarity and minimize user interruption.</p>
+                <div class="project-tags">
+                  <span class="tag">SwiftUI</span>
+                  <span class="tag">Apple HealthKit</span>
+                  <span class="tag">iOS</span>
+                  <span class="tag">HCI</span>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+                <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset">View on GitHub</a>
+              </div>
+            </div>
+
+            <!-- Project 5: Good Driver Incentive Program -->
+            <div class="project-card win-outset" id="card-driver">
+              <div>
+                <div class="project-image-box win-inset">
+                  <img src="assets/images/projects/good_driver.png" alt="Good Driver Incentive Program Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="project-image-placeholder">
+                    <strong>[ Project Image Slot ]</strong>
+                    <span>assets/images/projects/good_driver.png</span>
+                  </div>
+                </div>
+                <h3>Good Driver Incentive Program</h3>
+                <p>Built full-stack React frontend and Python/MySQL backend hosted on AWS. Implemented automated CI/CD pipeline and automated API tests for reward calculation and driving safety metrics.</p>
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">MySQL</span>
+                  <span class="tag">AWS</span>
+                  <span class="tag">CI/CD</span>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+                <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset">View on GitHub</a>
+              </div>
+            </div>
+
+            <!-- Project 6: TigerChow Web App -->
+            <div class="project-card win-outset" id="card-tigerchow">
+              <div>
+                <div class="project-image-box win-inset">
+                  <img src="assets/images/projects/tigerchow.png" alt="TigerChow Web App Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="project-image-placeholder">
+                    <strong>[ Project Image Slot ]</strong>
+                    <span>assets/images/projects/tigerchow.png</span>
+                  </div>
+                </div>
+                <h3>TigerChow Web App</h3>
+                <p>On-campus food and dining ordering system designed for Clemson University students, built entirely serverless using AWS Lambda, API Gateway, and DynamoDB.</p>
+                <div class="project-tags">
+                  <span class="tag">AWS Lambda</span>
+                  <span class="tag">API Gateway</span>
+                  <span class="tag">DynamoDB</span>
+                  <span class="tag">Serverless</span>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+                <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: Raspberry Pi Details -->
+        <div class="tab-pane" id="tab-pi" style="display: none;">
+          <h2 style="color: #000080; margin-bottom: 8px;">Self-Hosted on Raspberry Pi 4 Model B</h2>
+          <p style="margin-bottom: 12px;">This retro portfolio is configured to run 24/7 on Nathan's personal home server:</p>
+          <div class="win-outset" style="padding: 12px; background: #fafafa; margin-bottom: 14px;">
+            <ul style="margin-left: 20px; line-height: 1.8;">
+              <li><strong>Node:</strong> Raspberry Pi 4 Model B (Broadcom BCM2711 Quad-core Cortex-A72 ARM v8)</li>
+              <li><strong>Operating System:</strong> Raspberry Pi OS (Debian Linux)</li>
+              <li><strong>Web Engine:</strong> Nginx reverse proxy with lightweight static file delivery</li>
+              <li><strong>Power Footprint:</strong> ~3.5 Watts idle power draw</li>
+              <li><strong>AI Integration:</strong> Lightweight REST bridge to Gemini Flash & local Ollama models</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TAB 3: GitHub & Contact -->
+        <div class="tab-pane" id="tab-github" style="display: none;">
+          <h2 style="color: #000080; margin-bottom: 8px;">Contact & Profiles</h2>
+          <p style="margin-bottom: 16px;">Seeking entry-level roles in <strong>AI/ML Engineering, Software Engineering, Computer Vision, or Applied AI</strong>:</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px;">
+            <a href="https://github.com/njmcmil" target="_blank" class="project-btn win-outset" style="padding: 8px 12px; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+              <strong>[GitHub]</strong> github.com/njmcmil
+            </a>
+            <a href="https://www.linkedin.com/in/nathan-mcmillan-a90625227/" target="_blank" class="project-btn win-outset" style="padding: 8px 12px; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+              <strong>[LinkedIn]</strong> linkedin.com/in/nathan-mcmillan-a90625227
+            </a>
+            <a href="mailto:njmcmillan04@gmail.com" class="project-btn win-outset" style="padding: 8px 12px; display: flex; align-items: center; gap: 8px; text-decoration: none;">
+              <strong>[Email]</strong> njmcmillan04@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="window-statusbar win-inset">
+        <span>Done - Connected to Nathan McMillan's Portfolio</span>
+      </div>
+    </div>
+
+    <!-- WINDOW 2: MY COMPUTER (SYSTEM PROPERTIES & ABOUT) -->
+    <div class="window win-outset" id="win-about" style="top: 80px; left: 80px; width: 440px; height: 360px; display: none;">
+      <div class="window-titlebar">
+        <div class="window-title">
+          <span>System Properties - Nathan McMillan</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-btn-min">_</button>
+          <button class="win-btn win-btn-max">□</button>
+          <button class="win-btn win-btn-close">✕</button>
+        </div>
+      </div>
+      <div class="window-content win-inset">
+        <h3 style="color: #000080; margin-bottom: 4px;">Nathan McMillan</h3>
+        <p style="color: #666; font-size: 11px; margin-bottom: 10px;">Clemson University | B.S. Computer Science, Minor in AI | GPA: 3.2/4.0</p>
+        <p style="margin-bottom: 12px;">Computer Science student graduating <strong>December 2026</strong>. Experienced in machine learning, computer vision, robotics simulation, and full-stack software development.</p>
+        
+        <hr style="margin: 8px 0; border: 0; border-top: 1px solid #c0c0c0;">
+        <h4 style="margin-bottom: 6px; color: #000080;">Technical Skills Inventory:</h4>
+        <ul style="margin-left: 20px; line-height: 1.5; font-size: 11px;">
+          <li><strong>Languages:</strong> Python, Java, C++, C, JavaScript, SQL, HTML/CSS, Swift</li>
+          <li><strong>Frameworks & Tools:</strong> PyTorch, TensorFlow, Scikit-learn, React-Native, SwiftUI, Git, GitHub, JUnit, Postman, CI/CD, Unreal Engine 5</li>
+          <li><strong>Cloud & Systems:</strong> AWS, Azure, Linux, Raspberry Pi, HealthKit, REST APIs, Computer Vision, IoT</li>
+          <li><strong>Experience:</strong> Student Intern at CCIT (Clemson Computing & IT, May 2025 – July 2026)</li>
+          <li><strong>Clubs:</strong> Clemson Forge Member (2024)</li>
+        </ul>
+      </div>
+      <div class="window-statusbar win-inset">
+        <span>Graduation: December 2026 | Clemson, SC</span>
+      </div>
+    </div>
+
+    <!-- WINDOW 3: PROJECTS FOLDER -->
+    <div class="window win-outset" id="win-projects" style="top: 110px; left: 120px; width: 480px; height: 340px; display: none;">
+      <div class="window-titlebar">
+        <div class="window-title">
+          <span>C:\Nathan\Projects</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-btn-min">_</button>
+          <button class="win-btn win-btn-max">□</button>
+          <button class="win-btn win-btn-close">✕</button>
+        </div>
+      </div>
+      <div class="window-menu">
+        <span>File</span><span>Edit</span><span>View</span><span>Help</span>
+      </div>
+      <div class="window-content win-inset" style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <!-- Project Folder 1 -->
+        <div class="desktop-icon" style="color: #000; cursor: pointer;" onclick="document.querySelector('[data-tab=\'tab-projects\']').click(); openWindowById('win-browser'); document.getElementById('card-wildfire').scrollIntoView({behavior: 'smooth'});">
+          <svg viewBox="0 0 32 32" width="32" height="32"><path d="M2,6 L12,6 L15,9 L30,9 L30,26 L2,26 Z" fill="#e6c229" stroke="#000" stroke-width="1.5"/></svg>
+          <span style="font-size: 11px; text-shadow: none;">Wildfire_VLM.dir</span>
+        </div>
+        <!-- Project Folder 2 -->
+        <div class="desktop-icon" style="color: #000; cursor: pointer;" onclick="document.querySelector('[data-tab=\'tab-projects\']').click(); openWindowById('win-browser'); document.getElementById('card-robotics').scrollIntoView({behavior: 'smooth'});">
+          <svg viewBox="0 0 32 32" width="32" height="32"><path d="M2,6 L12,6 L15,9 L30,9 L30,26 L2,26 Z" fill="#e6c229" stroke="#000" stroke-width="1.5"/></svg>
+          <span style="font-size: 11px; text-shadow: none;">Robot_Manipulation.dir</span>
+        </div>
+        <!-- Project Folder 3 -->
+        <div class="desktop-icon" style="color: #000; cursor: pointer;" onclick="document.querySelector('[data-tab=\'tab-projects\']').click(); openWindowById('win-browser'); document.getElementById('card-manufacturing').scrollIntoView({behavior: 'smooth'});">
+          <svg viewBox="0 0 32 32" width="32" height="32"><path d="M2,6 L12,6 L15,9 L30,9 L30,26 L2,26 Z" fill="#e6c229" stroke="#000" stroke-width="1.5"/></svg>
+          <span style="font-size: 11px; text-shadow: none;">Edge_AI_Inspection.dir</span>
+        </div>
+        <!-- Project Folder 4 -->
+        <div class="desktop-icon" style="color: #000; cursor: pointer;" onclick="document.querySelector('[data-tab=\'tab-projects\']').click(); openWindowById('win-browser'); document.getElementById('card-health').scrollIntoView({behavior: 'smooth'});">
+          <svg viewBox="0 0 32 32" width="32" height="32"><path d="M2,6 L12,6 L15,9 L30,9 L30,26 L2,26 Z" fill="#e6c229" stroke="#000" stroke-width="1.5"/></svg>
+          <span style="font-size: 11px; text-shadow: none;">Ambient_Health.dir</span>
+        </div>
+        <!-- Project Folder 5 -->
+        <div class="desktop-icon" style="color: #000; cursor: pointer;" onclick="document.querySelector('[data-tab=\'tab-projects\']').click(); openWindowById('win-browser'); document.getElementById('card-driver').scrollIntoView({behavior: 'smooth'});">
+          <svg viewBox="0 0 32 32" width="32" height="32"><path d="M2,6 L12,6 L15,9 L30,9 L30,26 L2,26 Z" fill="#e6c229" stroke="#000" stroke-width="1.5"/></svg>
+          <span style="font-size: 11px; text-shadow: none;">Good_Driver_Program.dir</span>
+        </div>
+        <!-- Project Folder 6 -->
+        <div class="desktop-icon" style="color: #000; cursor: pointer;" onclick="document.querySelector('[data-tab=\'tab-projects\']').click(); openWindowById('win-browser'); document.getElementById('card-tigerchow').scrollIntoView({behavior: 'smooth'});">
+          <svg viewBox="0 0 32 32" width="32" height="32"><path d="M2,6 L12,6 L15,9 L30,9 L30,26 L2,26 Z" fill="#e6c229" stroke="#000" stroke-width="1.5"/></svg>
+          <span style="font-size: 11px; text-shadow: none;">TigerChow_Ordering.dir</span>
+        </div>
+      </div>
+      <div class="window-statusbar win-inset">
+        <span>6 Project(s) in repository</span>
+      </div>
+    </div>
+
+    <!-- WINDOW 4: NOTEPAD (RESUME.TXT) -->
+    <div class="window win-outset" id="win-resume" style="top: 70px; left: 240px; width: 560px; height: 420px; display: none;">
+      <div class="window-titlebar">
+        <div class="window-title">
+          <span>Resume.txt - Notepad</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-btn-min">_</button>
+          <button class="win-btn win-btn-max">□</button>
+          <button class="win-btn win-btn-close">✕</button>
+        </div>
+      </div>
+      <div class="window-menu">
+        <span>File</span><span>Edit</span><span>Search</span><span>Help</span>
+      </div>
+
+      <!-- Modern / Retro View Toggle Bar -->
+      <div class="notepad-toolbar">
+        <button class="win-btn win-outset" id="toggle-resume-view" style="width: auto; height: 22px; padding: 2px 8px; font-weight: bold; cursor: pointer;">
+          Switch to Modern PDF View
+        </button>
+        <a href="assets/Nathan_McMillan_Resume.pdf" download="Nathan_McMillan_Resume.pdf" class="project-btn win-outset" style="padding: 2px 8px; text-decoration: none; font-size: 11px;">
+          Download PDF
+        </a>
+        <a href="assets/Nathan_McMillan_Resume.pdf" target="_blank" class="project-btn win-outset" style="padding: 2px 8px; text-decoration: none; font-size: 11px;">
+          Open in New Tab
+        </a>
+      </div>
+
+      <!-- View 1: Retro Notepad Text View -->
+      <div class="window-content win-inset notepad-content" id="resume-text-view" contenteditable="true">========================================================================
+                          NATHAN MCMILLAN
+    GitHub: https://github.com/njmcmil  |  Email: njmcmillan04@gmail.com
+    LinkedIn: https://www.linkedin.com/in/nathan-mcmillan-a90625227/
+========================================================================
+
+[SUMMARY]
+Computer Science student at Clemson University with a minor in Artificial 
+Intelligence, graduating December 2026. Experienced in software development, 
+machine learning, computer vision, and robotics. 
+Seeking entry-level roles in AI/ML Engineering, Software Engineering, 
+Computer Vision, or Applied AI.
+
+[EDUCATION]
+Clemson University                                August 2022 - December 2026
+B.S. in Computer Science, Minor in Artificial Intelligence         Clemson, SC
+GPA: 3.2 / 4.0
+Clubs & Organizations: Clemson Forge, Member (2024)
+
+[PROJECTS]
+* VLM for Wildfire Detection (Feb 2026 - April 2026)
+  - Reproduced a teacher-student smoke-segmentation pipeline, using SAM to 
+    generate masks and PIDNet-S/M as lightweight student models.
+  - Qwen2.5-VL preserved uncertain teacher labels when faint smoke was detected.
+  - Matched reported baseline mIoU: PIDNet-S 0.591 vs. 0.594; PIDNet-M 0.605 
+    vs. 0.606. VLM-filter & fused variants reached 0.231 and 0.161 mIoU.
+
+* Vision-Language-Action Robot Manipulation (September 2026 - Present)
+  - Developing a simulation-based robot-manipulation study using LIBERO, MuJoCo, 
+    and robosuite, comparing vision-only, image-language, and Grid Sampler 
+    policies across two tasks.
+  - Planning 60-100 simulated demonstrations evaluating task success, latency, 
+    and visual-token usage.
+
+* Embodied AI for Automotive Manufacturing Inspection (August 2026 - Present)
+  - Developing CU-ICAR vehicle-inspection prototype; contributing to NSF STRIDE 
+    proposal focused on adaptable edge AI and traceable inspection data.
+  - Curated 500+ images with assisted labeling; established initial YOLO26 demo 
+    baseline of 63% mAP@0.5 and demonstrated 10-minute local OpenVINO inference.
+
+* Ambient Health Feedback App (Feb 2026 - April 2026)
+  - Built a SwiftUI app translating Apple Health data into ambient feedback.
+  - Conducted heuristic-guided usability testing to evaluate feedback clarity.
+
+* Good Driver Incentive Program (Jan 2026 - April 2026)
+  - Built React frontend and Python/MySQL backend on AWS; added CI/CD & API tests.
+
+* TigerChow Web App (Feb 2025 - Apr 2025)
+  - Built on-campus ordering system using AWS Lambda, API Gateway, DynamoDB.
+
+[RELEVANT EXPERIENCE]
+Student Intern - CCIT (Clemson Computing & IT)     May 2025 - July 2026
+- Supported installation, maintenance, and troubleshooting of classroom 
+  systems, ensuring reliable operation for daily academic use.
+
+[TECHNICAL SKILLS]
+Languages: Python, Java, C++, C, JavaScript, SQL, HTML/CSS, Swift
+Frameworks & Tools: React-Native, SwiftUI, PyTorch, TensorFlow, Scikit-learn, 
+                    Git, GitHub, JUnit, Postman, CI/CD, Unreal Engine 5
+Cloud & Tech: AWS, Azure, REST APIs, Linux, Raspberry Pi, HealthKit, 
+              Computer Vision, IoT
+========================================================================</div>
+
+      <!-- View 2: Modern Embedded PDF Viewer -->
+      <div class="window-content win-inset pdf-container" id="resume-pdf-view" style="display: none; padding: 0;">
+        <iframe src="assets/Nathan_McMillan_Resume.pdf" class="pdf-viewer-frame" title="Nathan McMillan Resume PDF"></iframe>
+      </div>
+      <div class="window-statusbar win-inset">
+        <span>Lines: 58 | Windows (CRLF) | ANSI</span>
+      </div>
+    </div>
+
+    <!-- WINDOW 5: RECYCLE BIN -->
+    <div class="window win-outset" id="win-trash" style="top: 140px; left: 200px; width: 340px; height: 220px; display: none;">
+      <div class="window-titlebar">
+        <div class="window-title">
+          <span>Recycle Bin</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn win-btn-min">_</button>
+          <button class="win-btn win-btn-max">□</button>
+          <button class="win-btn win-btn-close">✕</button>
+        </div>
+      </div>
+      <div class="window-content win-inset" style="text-align: center; padding-top: 30px;">
+        <p><strong>Recycle Bin is empty!</strong></p>
+        <p style="color: #666; margin-top: 8px;">No bugs or failed builds found here. All code passed CI/CD!</p>
+      </div>
+      <div class="window-statusbar win-inset">
+        <span>0 items</span>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         3. CLIPPY AI ASSISTANT POP-UP (IMPROVED)
+         ====================================================================== -->
+    <div class="clippy-container" id="clippy-container">
+      <!-- Clippy Speech Bubble -->
+      <div class="clippy-bubble" id="clippy-bubble">
+        <div class="clippy-bubble-header">
+          <span>Clippy [Assistant]</span>
+          <button class="clippy-close-bubble" id="clippy-close-btn" title="Dismiss">✕</button>
+        </div>
+        <p id="clippy-text">
+          Hi! Ask me anything about Nathan's AI research, software projects, skills, or Clemson background.
+        </p>
+        <div class="clippy-chat-input-box">
+          <input type="text" id="clippy-input" class="clippy-chat-input" placeholder="Ask anything: skills, robotics, GPA, hiring, server...">
+          <button class="win-btn win-outset" id="clippy-send-btn" style="width: auto; height: 32px; padding: 0 10px; font-weight: bold;">Ask</button>
+        </div>
+        <!-- Quick-Ask Topic Chips -->
+        <div class="clippy-chips">
+          <button class="clippy-chip" data-prompt="What are Nathan's top projects?">Top Projects</button>
+          <button class="clippy-chip" data-prompt="What are his technical skills?">Skills</button>
+          <button class="clippy-chip" data-prompt="Tell me about his robot manipulation research">Robotics</button>
+          <button class="clippy-chip" data-prompt="What is his Clemson GPA and graduation date?">Education</button>
+          <button class="clippy-chip" data-prompt="Is Nathan available for hire?">Hiring</button>
+          <button class="clippy-chip" data-prompt="How is this Raspberry Pi server hosted?">Pi Server</button>
+          <button class="clippy-chip" data-prompt="What is Nathan's email and contact info?">Contact</button>
+        </div>
+      </div>
+
+      <!-- Clippy Animated Avatar (Authentic Office 97 Look: Curled Legal Pad, Lavender Metallic 3D Wire, Tilted Egg Eyes) -->
+      <div class="clippy-avatar" id="clippy-avatar" title="Click me for funny tips!">
+        <svg viewBox="0 0 130 145" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- 3D Legal Pad Yellow Gradient -->
+            <linearGradient id="padGrad" x1="10%" y1="0%" x2="90%" y2="100%">
+              <stop offset="0%" stop-color="#fffbb3" />
+              <stop offset="25%" stop-color="#f8ea7a" />
+              <stop offset="65%" stop-color="#edd55c" />
+              <stop offset="100%" stop-color="#d6b840" />
+            </linearGradient>
+
+            <!-- Metallic Lavender-Silver Tubular Wire Gradient -->
+            <linearGradient id="wireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8c90ad" />
+              <stop offset="22%" stop-color="#bec3de" />
+              <stop offset="46%" stop-color="#ffffff" />
+              <stop offset="70%" stop-color="#c4c9e7" />
+              <stop offset="100%" stop-color="#6e7290" />
+            </linearGradient>
+
+            <!-- 3D Eyeball Gradient -->
+            <radialGradient id="eye3DGrad" cx="36%" cy="30%" r="68%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="72%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#d6d2e6" />
+            </radialGradient>
+
+            <!-- Soft Blur for Cast Shadows -->
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+            </filter>
+          </defs>
+
+          <!-- 1. Curled Yellow Legal Notepad Paper -->
+          <g id="clippy-legal-pad">
+            <!-- Paper Base -->
+            <path d="M 42,42 C 65,30 98,26 126,40 C 112,78 100,110 84,136 C 54,142 24,124 2,102 C 15,80 28,60 42,42 Z"
+                  fill="url(#padGrad)" stroke="#c2a832" stroke-width="0.8"/>
+
+            <!-- Faint Greenish Ruled Lines -->
+            <path d="M 38,50 C 65,38 96,35 124,47" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 33,58 C 60,46 92,43 120,55" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 28,66 C 56,54 88,51 116,63" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 23,74 C 52,62 84,59 112,71" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 18,82 C 48,70 80,67 108,79" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 14,90 C 44,78 76,75 104,87" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 10,98 C 40,86 72,83 100,95" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 7,105 C 36,94 68,91 96,103" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 15,114 C 40,103 68,100 92,112" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 25,123 C 48,112 68,109 88,121" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+            <path d="M 38,131 C 55,122 72,120 84,130" stroke="#b2c295" stroke-width="0.75" fill="none" opacity="0.85"/>
+
+            <!-- Pink/Red Margin Line -->
+            <path d="M 44,44 C 36,65 24,95 18,112" stroke="#ea8080" stroke-width="0.9" fill="none" opacity="0.75"/>
+          </g>
+
+          <!-- 2. Paperclip Wire Drop Shadows on the Legal Pad -->
+          <g id="clippy-paper-shadows" filter="url(#softShadow)" opacity="0.38">
+            <path d="M 44,56 L 44,92 C 44,114 62,114 62,94 L 66,66" 
+                  stroke="#5a5228" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+            <path d="M 66,74 L 68,90 C 70,104 80,104 82,90 L 86,68" 
+                  stroke="#5a5228" stroke-width="5" stroke-linecap="round" fill="none"/>
+          </g>
+
+          <!-- 3. Metallic Lavender Wire Body (3D Tubular Stroke) -->
+          <g id="clippy-wire-body">
+            <!-- Dark Undercoat / Depth Shadow -->
+            <path d="M 42,70 L 42,50 C 42,42 48,42 48,50 L 48,90 C 48,108 34,108 34,90 L 34,24 C 34,8 74,8 74,28 L 74,96 C 74,120 40,120 40,96 L 40,68"
+                  fill="none" stroke="#464a66" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Metallic Lavender-Silver Gradient -->
+            <path d="M 42,70 L 42,50 C 42,42 48,42 48,50 L 48,90 C 48,108 34,108 34,90 L 34,24 C 34,8 74,8 74,28 L 74,96 C 74,120 40,120 40,96 L 40,68"
+                  fill="none" stroke="url(#wireGrad)" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Tubular Specular Highlight -->
+            <path d="M 41.5,69 L 41.5,50 C 41.5,43 47,43 47,50 L 47,90 C 47,106.5 35,106.5 35,90 L 35,24.5 C 35,9.5 73,9.5 73,28 L 73,95.5 C 73,118.5 41,118.5 41,96 L 41,68"
+                  fill="none" stroke="rgba(255,255,255,0.72)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+
+          <!-- 4. Eyes & Pupils (Large Tilted 3D Egg Shapes with White Catchlights) -->
+          <g id="clippy-eyes">
+            <!-- Left Eye (Tilted Clockwise) -->
+            <g id="clippy-eye-left-group">
+              <ellipse cx="38" cy="34" rx="14" ry="17.5" transform="rotate(22 38 34)" fill="#201e28"/>
+              <ellipse cx="38" cy="34" rx="13" ry="16.5" transform="rotate(22 38 34)" fill="url(#eye3DGrad)"/>
+              <path d="M 27,27 Q 38,18 49,29" fill="none" stroke="#2a2834" stroke-width="1.6" stroke-linecap="round"/>
+              <circle id="clippy-pupil-left" cx="38" cy="34" r="5.6" fill="#14141c"/>
+              <circle id="clippy-gleam-left" cx="36" cy="31" r="1.8" fill="#ffffff"/>
+            </g>
+
+            <!-- Right Eye (Tilted Counterclockwise - Quizzical Head Tilt) -->
+            <g id="clippy-eye-right-group">
+              <ellipse cx="68" cy="43" rx="14" ry="17.5" transform="rotate(-18 68 43)" fill="#201e28"/>
+              <ellipse cx="68" cy="43" rx="13" ry="16.5" transform="rotate(-18 68 43)" fill="url(#eye3DGrad)"/>
+              <path d="M 57,36 Q 68,28 79,40" fill="none" stroke="#2a2834" stroke-width="1.6" stroke-linecap="round"/>
+              <circle id="clippy-pupil-right" cx="68" cy="43" r="5.6" fill="#14141c"/>
+              <circle id="clippy-gleam-right" cx="66" cy="40" r="1.8" fill="#ffffff"/>
+            </g>
+          </g>
+
+          <!-- 5. Expressive Floating 3D Eyebrows -->
+          <g id="clippy-eyebrows">
+            <path id="clippy-eyebrow-left" d="M 26,19 Q 39,9 52,21" fill="none" stroke="#16141c" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 28,18 Q 39,11 50,20" fill="none" stroke="#4c4858" stroke-width="1.2" stroke-linecap="round"/>
+
+            <path id="clippy-eyebrow-right" d="M 63,26 Q 77,20 89,35" fill="none" stroke="#16141c" stroke-width="4.2" stroke-linecap="round"/>
+            <path d="M 65,25 Q 77,21 87,33" fill="none" stroke="#4c4858" stroke-width="1.2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ======================================================================
+       4. START MENU (POPUP)
+       ====================================================================== -->
+  <div class="start-menu win-outset" id="start-menu">
+    <div style="display: flex;">
+      <div class="start-menu-sidebar">
+        WINDOWS 98
+      </div>
+      <div class="start-menu-content">
+        <div class="start-menu-item" onclick="openWindowById('win-browser')">
+          <span>&gt;</span> <strong>Nathan Explorer</strong>
+        </div>
+        <div class="start-menu-item" onclick="openWindowById('win-projects')">
+          <span>&gt;</span> Projects
+        </div>
+        <div class="start-menu-item" onclick="openWindowById('win-resume')">
+          <span>&gt;</span> Resume.txt
+        </div>
+        <div class="start-menu-item" onclick="openWindowById('win-about')">
+          <span>&gt;</span> System Info
+        </div>
+        <div class="start-menu-divider"></div>
+        <div class="start-menu-item" onclick="alert('System Shutdown is disabled! You are exploring Nathan\'s live portfolio.');">
+          <span>&gt;</span> Shut Down...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       5. TASKBAR (BOTTOM)
+       ====================================================================== -->
+  <footer class="taskbar">
+    <div class="taskbar-left">
+      <!-- Start Button -->
+      <button class="start-btn win-outset" id="start-btn">
+        <svg viewBox="0 0 16 16" width="14" height="14">
+          <rect x="1" y="1" width="6" height="6" fill="#f25022"/>
+          <rect x="9" y="1" width="6" height="6" fill="#7fba00"/>
+          <rect x="1" y="9" width="6" height="6" fill="#00a4ef"/>
+          <rect x="9" y="9" width="6" height="6" fill="#ffb900"/>
+        </svg>
+        <span>Start</span>
+      </button>
+
+      <!-- Taskbar Window Buttons Container -->
+      <div class="taskbar-items" id="taskbar-items">
+        <!-- Dynamically rendered or synced window tabs -->
+      </div>
+    </div>
+
+    <!-- System Tray & Digital Clock -->
+    <div class="system-tray win-inset">
+      <span title="Volume" style="font-weight: bold; font-size: 10px; padding: 0 2px;">[VOL]</span>
+      <span class="clock" id="system-clock">12:00 PM</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js" defer></script>
+  <script src="js/clippy.js" defer></script>
+</body>
+</html>

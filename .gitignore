@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment / Secret Keys (for AI API keys)
+.env
+.env.local
+*.key
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor folders
+.vscode/
+.idea/

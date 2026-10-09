@@ -1,0 +1,822 @@
+/* ==========================================================================
+   RETRO 90s OS THEME (Windows 98 Style)
+   Author: Nathan McMillan Portfolio
+   ========================================================================== */
+
+/* 1. Global Reset & Box Sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --win-gray: #c0c0c0;
+  --win-white: #ffffff;
+  --win-light: #dfdfdf;
+  --win-dark: #808080;
+  --win-black: #000000;
+  --win-blue: #000080;
+  --win-blue-light: #1084d0;
+  --win-teal: #008080;
+  --win-yellow: #ffffcc;
+  --font-family: 'Tahoma', 'Segoe UI', 'MS Sans Serif', Geneva, sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--font-family);
+  font-size: 12px;
+  user-select: none;
+  background-color: var(--win-teal);
+  color: var(--win-black);
+}
+
+/* ==========================================================================
+   2. Retro 3D Bevel Utilities
+   ========================================================================== */
+/* Outset: looks raised off the screen (buttons, window borders) */
+.win-outset {
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-dark);
+}
+
+/* Inset: looks carved into the screen (inputs, text areas, status bars) */
+.win-inset {
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+  box-shadow: inset 1px 1px 0 var(--win-black), inset -1px -1px 0 var(--win-light);
+}
+
+/* ==========================================================================
+   3. Desktop Canvas & Icons
+   ========================================================================== */
+.desktop {
+  flex: 1;
+  position: relative;
+  background-color: var(--win-teal);
+  background-image: url('../assets/images/wallpaper.webp');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 16px;
+}
+
+/* Desktop Icons Grid */
+.desktop-icons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 16px;
+  height: 100%;
+  width: max-content;
+}
+
+.desktop-icon {
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 4px;
+  border: 1px dotted transparent;
+  color: var(--win-white);
+}
+
+.desktop-icon:hover {
+  background-color: rgba(0, 0, 128, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.desktop-icon.selected {
+  background-color: rgba(0, 0, 128, 0.7);
+  border-color: var(--win-white);
+}
+
+.desktop-icon .icon-img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+.desktop-icon .icon-label {
+  font-size: 11px;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px #000, 0 0 4px #000;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   4. Retro Window Component
+   ========================================================================== */
+.window {
+  position: absolute;
+  background-color: var(--win-gray);
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 220px;
+  padding: 3px;
+  z-index: 10;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.window.active {
+  z-index: 50;
+}
+
+/* Maximized State: Fills the desktop area completely */
+.window.maximized {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0;
+}
+
+/* Window Titlebar */
+.window-titlebar {
+  height: 22px;
+  background: linear-gradient(90deg, var(--win-blue), var(--win-blue-light));
+  color: var(--win-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  cursor: grab;
+  font-weight: bold;
+}
+
+.window:not(.active) .window-titlebar {
+  background: linear-gradient(90deg, var(--win-dark), #a0a0a0);
+  color: #dcdcdc;
+}
+
+.window-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.win-btn {
+  width: 16px;
+  height: 14px;
+  font-family: var(--font-family);
+  font-size: 9px;
+  font-weight: bold;
+  background-color: var(--win-gray);
+  border: 1px solid var(--win-white);
+  border-right-color: var(--win-black);
+  border-bottom-color: var(--win-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.win-btn:active {
+  border-color: var(--win-black);
+  border-right-color: var(--win-white);
+  border-bottom-color: var(--win-white);
+  padding: 1px 0 0 1px;
+}
+
+/* Window Menu Bar (File, Edit, View, Help) */
+.window-menu {
+  display: flex;
+  gap: 12px;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-bottom: 1px solid var(--win-dark);
+}
+
+.window-menu span {
+  cursor: pointer;
+}
+
+.window-menu span:hover {
+  background-color: var(--win-blue);
+  color: var(--win-white);
+}
+
+/* Window Body Content */
+.window-content {
+  flex: 1;
+  background-color: var(--win-white);
+  margin-top: 3px;
+  padding: 12px;
+  overflow-y: auto;
+  user-select: text;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 12px;
+}
+
+/* Window Status Bar */
+.window-statusbar {
+  height: 20px;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 11px;
+  color: #333;
+  background-color: var(--win-gray);
+}
+
+/* ==========================================================================
+   5. Fake Browser (Internet Explorer) Styles
+   ========================================================================== */
+.browser-toolbar {
+  background-color: var(--win-gray);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.browser-tabs {
+  display: flex;
+  gap: 3px;
+  border-bottom: 2px solid var(--win-gray);
+}
+
+.browser-tab {
+  padding: 3px 12px;
+  background-color: #d8d8d8;
+  border: 1px solid var(--win-dark);
+  border-bottom: none;
+  cursor: pointer;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 3px 3px 0 0;
+}
+
+.browser-tab.active {
+  background-color: var(--win-white);
+  font-weight: bold;
+  border-color: var(--win-dark);
+  border-bottom: 1px solid var(--win-white);
+  margin-bottom: -1px;
+}
+
+.browser-address-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  padding: 2px 0;
+}
+
+.browser-url-input {
+  flex: 1;
+  background-color: var(--win-white);
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 11px;
+  outline: none;
+}
+
+.browser-nav-btn {
+  padding: 2px 8px;
+  font-size: 10px;
+  cursor: pointer;
+  background: var(--win-gray);
+}
+
+/* Project Cards Inside Browser Tab */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.project-card {
+  background-color: #f7f7f7;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card h3 {
+  font-size: 13px;
+  color: var(--win-blue);
+  margin-bottom: 6px;
+}
+
+.project-image-box {
+  width: 100%;
+  height: 125px;
+  background-color: #d8d8d8;
+  margin-bottom: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.project-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #666;
+  font-size: 11px;
+  font-family: monospace;
+  background: repeating-linear-gradient(45deg, #e8e8e8, #e8e8e8 8px, #f2f2f2 8px, #f2f2f2 16px);
+  border: 1px dashed #999;
+  padding: 6px;
+  text-align: center;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 6px 0 10px 0;
+}
+
+.tag {
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.project-btn {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: var(--win-gray);
+  text-decoration: none;
+  color: var(--win-black);
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+/* ==========================================================================
+   6. Notepad Styles (Resume Window) & Modern PDF Viewer
+   ========================================================================== */
+.notepad-toolbar {
+  background-color: var(--win-gray);
+  padding: 4px 6px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  border-bottom: 1px solid var(--win-dark);
+}
+
+.notepad-content {
+  flex: 1;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  color: #111;
+  overflow-y: auto;
+}
+
+.pdf-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background-color: #525659;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-viewer-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  flex: 1;
+}
+
+/* ==========================================================================
+   7. Clippy Assistant Widget (Draggable & Interactive)
+   ========================================================================== */
+.clippy-container {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 100;
+  cursor: grab;
+  touch-action: none;
+}
+
+.clippy-container.dragging {
+  cursor: grabbing;
+  z-index: 9999;
+}
+
+.clippy-bubble {
+  background-color: var(--win-yellow);
+  border: 1px solid var(--win-black);
+  border-radius: 6px;
+  padding: 10px 12px;
+  max-width: 365px;
+  width: 365px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  margin-bottom: 8px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  position: relative;
+  user-select: text;
+  animation: bubble-pop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.clippy-bubble.angry-bubble {
+  background-color: #ffcccc !important;
+  border-color: #cc0000 !important;
+  color: #900000 !important;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6) !important;
+}
+
+.clippy-bubble.angry-bubble .clippy-bubble-header {
+  border-bottom-color: #cc0000 !important;
+  color: #cc0000 !important;
+}
+
+.clippy-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 52px;
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: var(--win-yellow) transparent;
+  display: block;
+  width: 0;
+}
+
+.clippy-bubble.angry-bubble::after {
+  border-color: #ffcccc transparent !important;
+}
+
+.clippy-bubble-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #d4c875;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 11px;
+  color: #555;
+}
+
+.clippy-close-bubble {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 0 3px;
+  line-height: 1;
+}
+
+.clippy-close-bubble:hover {
+  color: #d00;
+}
+
+.clippy-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 51px;
+  border-width: 9px 9px 0;
+  border-style: solid;
+  border-color: var(--win-black) transparent;
+  display: block;
+  width: 0;
+}
+
+.clippy-chat-input-box {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.clippy-chat-input {
+  flex: 1;
+  font-size: 11.5px;
+  padding: 5px 8px;
+  height: 32px;
+  border: 1px solid var(--win-dark);
+  outline: none;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+.clippy-chat-input:focus {
+  border-color: var(--win-blue);
+  box-shadow: 0 0 2px var(--win-blue);
+}
+
+.clippy-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+  border-top: 1px dashed #c4b865;
+  padding-top: 6px;
+}
+
+.clippy-chip {
+  background: #fdfae0;
+  border: 1px solid #888;
+  border-radius: 2px;
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #333;
+}
+
+.clippy-chip:hover {
+  background: var(--win-blue);
+  color: #ffffff;
+  border-color: #000;
+}
+
+.clippy-avatar {
+  width: 108px;
+  height: 120px;
+  cursor: grab;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.45));
+  animation: clippy-bob 3.2s ease-in-out infinite;
+  transform-origin: bottom center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.clippy-container.dragging .clippy-avatar {
+  cursor: grabbing;
+  transform: scale(1.15) rotate(8deg);
+  animation: none;
+}
+
+.clippy-avatar:hover {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.clippy-avatar.excited {
+  animation: clippy-bounce 0.6s ease infinite alternate;
+}
+
+.clippy-avatar.tapping {
+  animation: clippy-tap 0.4s ease 3;
+}
+
+/* Angry Rage Mode (Thrown in the Trash!) */
+.clippy-avatar.angry {
+  animation: clippy-rage 0.08s infinite alternate !important;
+  filter: drop-shadow(0 0 12px #ff0000) hue-rotate(300deg) saturate(3) !important;
+}
+
+/* Drag-over indicator on Recycle Bin */
+.desktop-icon.drag-over {
+  background-color: rgba(255, 0, 0, 0.35) !important;
+  border-color: #ff0000 !important;
+  transform: scale(1.15);
+  transition: transform 0.15s ease;
+}
+
+/* Keyframe Animations for Clippy */
+@keyframes clippy-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes clippy-bounce {
+  0% {
+    transform: translateY(0) scale(1.05);
+  }
+  100% {
+    transform: translateY(-12px) scale(1.1) rotate(4deg);
+  }
+}
+
+@keyframes clippy-tap {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes clippy-rage {
+  0% {
+    transform: translate(-3px, -2px) rotate(-8deg) scale(1.2);
+  }
+  50% {
+    transform: translate(3px, 2px) rotate(8deg) scale(1.25);
+  }
+  100% {
+    transform: translate(-2px, 3px) rotate(-6deg) scale(1.2);
+  }
+}
+
+@keyframes bubble-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==========================================================================
+   8. Taskbar & Start Menu
+   ========================================================================== */
+.taskbar {
+  height: 34px;
+  background-color: var(--win-gray);
+  border-top: 2px solid var(--win-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
+  z-index: 200;
+  position: relative;
+}
+
+.taskbar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.start-btn {
+  height: 26px;
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  background-color: var(--win-gray);
+}
+
+.start-btn:active, .start-btn.active {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+  padding: 3px 7px 1px 9px;
+}
+
+.taskbar-items {
+  display: flex;
+  gap: 4px;
+  margin-left: 6px;
+  overflow-x: auto;
+}
+
+.taskbar-item {
+  height: 24px;
+  width: 140px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  background-color: var(--win-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.taskbar-item.active {
+  background: repeating-conic-gradient(#c0c0c0 0% 25%, #ffffff 0% 50%) 50% / 2px 2px;
+  font-weight: bold;
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+}
+
+.system-tray {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  font-size: 11px;
+  background-color: var(--win-gray);
+}
+
+/* Start Menu Popup */
+.start-menu {
+  position: absolute;
+  bottom: 34px;
+  left: 2px;
+  width: 190px;
+  background-color: var(--win-gray);
+  display: none;
+  flex-direction: column;
+  z-index: 300;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+}
+
+.start-menu.open {
+  display: flex;
+}
+
+.start-menu-sidebar {
+  background: linear-gradient(180deg, #000080, #1084d0);
+  color: var(--win-white);
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px 6px;
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+}
+
+.start-menu-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.start-menu-item:hover {
+  background-color: var(--win-blue);
+  color: var(--win-white);
+}
+
+.start-menu-divider {
+  height: 1px;
+  background-color: var(--win-dark);
+  border-bottom: 1px solid var(--win-white);
+  margin: 4px 2px;
+}
